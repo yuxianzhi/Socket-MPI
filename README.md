@@ -1,4 +1,4 @@
-# Socket-MPI
+### Socket-MPI
 
 参照MPI实现的并行框架的多节点通信函数(实现原理：通信双方双向认证。使用了socket编程，引入了epoll来实现IO的多路复用，打破传统socket编程的保存的客户端数目上限FD_SETSIZE宏（2048）的限制。
 
@@ -9,19 +9,15 @@ epoll则打破这个限制，用空间换时间，IO多路复用，相对比来�
 实现了几个简单的通信函数（send/recv，barrier，broadcast，reduction）
 
 
-文件夹内文件信息：
+* 文件
+  * MPI.c   实现的fork出新进程的程序，编译命令: gcc -std=c99 -o main MPI.c
+  * WAVE.h  自定义的分布式通信框架头文件
+  * WAVE.c  自定义的分布式通信框架的实现
+  * n.c     测试分布式通信框架的代码
 
-MPI.c   实现的fork出新进程的程序，编译命令: gcc -std=c99 -o main MPI.c
-
-WAVE.h  自定义的分布式通信框架头文件
-
-WAVE.c  自定义的分布式通信框架的实现
-
-n.c     测试分布式通信框架的代码
-
-编译命令：make
-
+* 编译命令：make
 生成可执行测试程序./n
 
 
+* 运行
 9个进程的运行命令：./main 9 ./n
